@@ -6,9 +6,9 @@
 using namespace std;
 int main()
 {
-    int numart, opc;
-    float precuni;
-    string art, desc, cat;
+    int numart, anio, opc;
+    float precuni=0, iva=0, total=0;
+    string art, desc, clas, car, gen;
 
     cout << "\t TIENDA DE VIDEOJUEGOS \n\t\t MIRMAR\n";
     cout << " 1.-Agregar Juego \n 2.-Modificar Juego\n 3.-Eliminar Juego\n 4.-Lista de Juegos\n 5.-Limpiar Pantalla\n 6.-Salir\n";
@@ -21,14 +21,24 @@ int main()
         cout << "Ingrese el nombre del juego\n";
         cin.ignore();
         getline(cin, art);
+        cout << "Ingrese el anio de lanzamiento\n";
+        cin >> anio;
+        cout << "Ingrese la clasificacion del juego\n";
+        cin.ignore();
+        getline(cin, clas);
+        cout << "Ingrese las caracteristicas del juego\n";
+        cin.ignore();
+        getline(cin, car);
         cout << "Ingrese la descripcion del juego\n";
         cin.ignore();
         getline(cin, desc);
-        cout << "Ingrese la categoria del juego\n";
+        cout << "Ingrese el genero del juego\n";
         cin.ignore();
-        getline(cin, cat);
+        getline(cin, gen);
         cout << "Ingrese el precio unitario del juego\n";
         cin >> precuni;
+        iva = precuni * 0.16;
+        total = precuni + iva;
         cout << "Juego agregado, que desea hacer ahora?\n";
         return main();
         break;
@@ -40,10 +50,10 @@ int main()
         break;//Lista de juego (no incluido)
     case 5:
         system("cls");
+        return main();
         break;
     case 6:
         cout << "Gracias por usar el programa de MIRMAR\n";
-        system("cls");
         break;
     default:
         cout << "Valor invalido, intentelo de nuevo\n";
