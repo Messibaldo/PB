@@ -39,7 +39,8 @@ int main()
         cin >> precuni;
         iva = precuni * 0.16;
         total = precuni + iva;
-        cout << "Juego agregado, que desea hacer ahora?\n";
+        cout << "IVA:\t" << iva << "\nPrecio total:\t" << total;
+        cout << "\nJuego agregado, que desea hacer ahora?\n";
         return main();
         break;
     case 2:
