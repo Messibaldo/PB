@@ -1,0 +1,116 @@
+include <iostream>
+#include <stdio.h>
+#include <string>
+#include <string.h>
+#include <windows.h>
+
+using namespace std;
+
+
+//estructura
+struct MIRMAR
+{
+    int numart=0, anho=0;
+    float preuni=0, iva=0, total=0;
+    string nombre, clasif, carac, desc, genero;
+
+};
+//funciones
+float iva(float x, float y);
+float total(float x, float y);
+
+int main()
+{
+    MIRMAR compras[3];
+    int opc, opc2, busq;
+    do
+    {
+        printf("\t ***BIENVENIDO A MIRMAR*** \n");
+        //menu de opciones
+        printf(" 1.-Agregar articulo \n 2.-Modificar articulo \n 3.-Eliminar articulo \n 4.-Lista de articulos vigentes\n 5.-Limpiar Pantalla \n 6.- Salir \n");
+        scanf_s("%d", &opc);
+        //switch
+        switch (opc)
+        {
+        case 1:
+            for (int i = 0; i < 3; i++) //no usar <= porque lo crashea
+            {
+                //ciclo repetitivo para que no se repita el numart
+                do
+                {
+                    printf("Ingrese el n%cmero del art%cculo\n", 163, 161);
+                    scanf_s("%d", &compras[i].numart);
+                } while (compras[i].numart == compras[i - 1].numart || compras[i].numart == compras[i - 2].numart);
+                printf("Ingrese el nombre del videojuego\n");
+                cin.ignore();
+                getline(cin, compras[i].nombre);
+                printf("Ingrese el a%co de lanzamiento\n", 164);
+                scanf_s("%d", &compras[i].anho);
+                printf("Ingrese la clasificaci%cn\n", 162);
+                cin.ignore();
+                getline(cin, compras[i].clasif);
+                printf("Ingrese las caracter%csticas del videojuego\n", 161);
+                cin.ignore();
+                getline(cin, compras[i].carac);
+                printf("Ingrese la descripci%cn del videojuego\n", 162);
+                cin.ignore();
+                getline(cin, compras[i].desc);
+                printf("Ingrese el g%cnero del videojuego\n", 130);
+                cin.ignore();
+                getline(cin, compras[i].genero);
+                printf("Ingrese el precio unitario\n");
+                scanf_s("%f", &compras[i].preuni);
+                printf("El precio unitario es de %f\n", compras[i].preuni);
+                compras[i].iva = iva(compras[i].preuni, 0.16);
+                printf("El iva es de %f\n", compras[i].iva);
+                compras[i].total = total(compras[i].preuni, compras[i].iva);
+                printf("El precio total del videojuego es de %f\n", compras[i].total);
+                system("pause");
+            }
+            break;
+        case 2:
+            //pendiente
+            break;
+        case 3:
+            //pendiente
+            break;
+        case 4:
+            for (int i = 0; i < 3; i++)
+            {
+                printf("\n\nN%cmero de art%cculo: %d\n", 163, 161, compras[i].numart);
+                printf("Nombre: %s\n", compras[i].nombre.c_str());
+                printf("A%co de lanzamiento: %d\n", 164, compras[i].anho);
+                printf("Clasificaci%cn: %s\n", 162, compras[i].clasif.c_str());
+                printf("Caracter%csticas: %s\n", 161, compras[i].carac.c_str());
+                printf("Descripci%cn: %s\n", 162, compras[i].desc.c_str());
+                printf("G%cnero: %s\n", 130, compras[i].genero.c_str());
+                printf("Precio unitario: %f\n", compras[i].preuni);
+                printf("IVA: %f\n", compras[i].iva);
+                printf("Precio total: %f\n", compras[i].total);
+                system("pause");
+            }
+            break;
+        case 5:
+            system("cls");
+            break;
+        case 6:
+            printf("Saliendo...");
+            break;
+        }
+    } while (opc != 6);
+}
+
+float iva(float x, float y)
+{
+    float res;
+    res = x * y;
+    return res;
+}
+
+float total(float x, float y)
+{
+    float res;
+    res = x + y;
+    return res;
+}
+
