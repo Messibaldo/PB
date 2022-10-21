@@ -1,4 +1,4 @@
-include <iostream>
+#include <iostream>
 #include <stdio.h>
 #include <string>
 #include <string.h>
@@ -23,6 +23,7 @@ int main()
 {
     MIRMAR compras[3];
     int opc, opc2, busq;
+    string genb, clasb;
     do
     {
         printf("\t ***BIENVENIDO A MIRMAR*** \n");
@@ -75,19 +76,71 @@ int main()
             //pendiente
             break;
         case 4:
-            for (int i = 0; i < 3; i++)
+            printf("%cC%cmo desea visualizar la lista?\n", 168, 162);
+            printf("1.-G%cnero\n2.-Clasificaci%cn\n3.-Todos\n", 130, 162);
+            scanf_s("%d", &busq);
+            switch (busq)
             {
-                printf("\n\nN%cmero de art%cculo: %d\n", 163, 161, compras[i].numart);
-                printf("Nombre: %s\n", compras[i].nombre.c_str());
-                printf("A%co de lanzamiento: %d\n", 164, compras[i].anho);
-                printf("Clasificaci%cn: %s\n", 162, compras[i].clasif.c_str());
-                printf("Caracter%csticas: %s\n", 161, compras[i].carac.c_str());
-                printf("Descripci%cn: %s\n", 162, compras[i].desc.c_str());
-                printf("G%cnero: %s\n", 130, compras[i].genero.c_str());
-                printf("Precio unitario: %f\n", compras[i].preuni);
-                printf("IVA: %f\n", compras[i].iva);
-                printf("Precio total: %f\n", compras[i].total);
-                system("pause");
+            case 1:
+                printf("Ingrese el g%cnero que desea buscar\n", 130);
+                cin.ignore();
+                getline(cin, genb);
+                for (int i = 0; i < 3; i++)
+                {
+                    if (genb.compare(compras[i].genero)==0)
+                    {
+                        printf("\n\nN%cmero de art%cculo: %d\n", 163, 161, compras[i].numart);
+                        printf("Nombre: %s\n", compras[i].nombre.c_str());
+                        printf("A%co de lanzamiento: %d\n", 164, compras[i].anho);
+                        printf("Clasificaci%cn: %s\n", 162, compras[i].clasif.c_str());
+                        printf("Caracter%csticas: %s\n", 161, compras[i].carac.c_str());
+                        printf("Descripci%cn: %s\n", 162, compras[i].desc.c_str());
+                        printf("G%cnero: %s\n", 130, compras[i].genero.c_str());
+                        printf("Precio unitario: %f\n", compras[i].preuni);
+                        printf("IVA: %f\n", compras[i].iva);
+                        printf("Precio total: %f\n", compras[i].total);
+                        system("pause");
+                    }
+                }
+                break;
+            case 2:
+                printf("Ingrese la clasificaci%cn que desea buscar\n", 162);
+                cin.ignore();
+                getline(cin, clasb);
+                for (int i = 0; i < 3; i++)
+                {
+                    if (clasb.compare(compras[i].clasif)==0)
+                    {
+                        printf("\n\nN%cmero de art%cculo: %d\n", 163, 161, compras[i].numart);
+                        printf("Nombre: %s\n", compras[i].nombre.c_str());
+                        printf("A%co de lanzamiento: %d\n", 164, compras[i].anho);
+                        printf("Clasificaci%cn: %s\n", 162, compras[i].clasif.c_str());
+                        printf("Caracter%csticas: %s\n", 161, compras[i].carac.c_str());
+                        printf("Descripci%cn: %s\n", 162, compras[i].desc.c_str());
+                        printf("G%cnero: %s\n", 130, compras[i].genero.c_str());
+                        printf("Precio unitario: %f\n", compras[i].preuni);
+                        printf("IVA: %f\n", compras[i].iva);
+                        printf("Precio total: %f\n", compras[i].total);
+                        system("pause");
+                    }
+                }
+                break;
+            case 3:
+                for (int i = 0; i < 3; i++)
+                {
+                    printf("\n\nN%cmero de art%cculo: %d\n", 163, 161, compras[i].numart);
+                    printf("Nombre: %s\n", compras[i].nombre.c_str());
+                    printf("A%co de lanzamiento: %d\n", 164, compras[i].anho);
+                    printf("Clasificaci%cn: %s\n", 162, compras[i].clasif.c_str());
+                    printf("Caracter%csticas: %s\n", 161, compras[i].carac.c_str());
+                    printf("Descripci%cn: %s\n", 162, compras[i].desc.c_str());
+                    printf("G%cnero: %s\n", 130, compras[i].genero.c_str());
+                    printf("Precio unitario: %f\n", compras[i].preuni);
+                    printf("IVA: %f\n", compras[i].iva);
+                    printf("Precio total: %f\n", compras[i].total);
+                    system("pause");
+                }
+                break;
             }
             break;
         case 5:
