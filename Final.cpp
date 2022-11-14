@@ -114,7 +114,7 @@ void alta()
 		getline(cin, desc[i]);
 		printf("Ingrese el precio del articulo\n");
 		scanf_s("%f", &precio[i]);
-		iva[i] = precio[i] * 16;
+		iva[i] = precio[i] * 0.16;
 		total[i] = precio[i] + iva[i];
 		//otra alta?
 		if ((registros-1) == i)
@@ -140,7 +140,7 @@ void alta()
 void baja()
 {
 	int elim;
-	printf("Ingrese el numero de articulo a eliminar");
+	printf("Ingrese el numero de articulo a eliminar \n");
 	scanf_s("%d", &elim);
 	for (int i = 0; i < registros; i++)
 	{
@@ -194,14 +194,14 @@ void lista()
 				{
 					printf("Numero de articulo: %d \n", articulo[i]);
 					printf("A%co de lanzamiento: %d \n", 164, anio[i]);
-					printf("Nombre del articulo: %s", nombre[i].c_str());
-					printf("Clasificacion: %s", clasificacion[i].c_str());
-					printf("Caracteristicas: %s", caract[i].c_str());
-					printf("Genero: %s", genero[i].c_str());
-					printf("Descripcion: %s", desc[i].c_str());
-					printf("Subtotal: %f", precio[i]);
-					printf("IVA: %f", iva[i]);
-					printf("Total: %f", total[i]);
+					printf("Nombre del articulo: %s \n", nombre[i].c_str());
+					printf("Clasificacion: %s \n", clasificacion[i].c_str());
+					printf("Caracteristicas: %s \n", caract[i].c_str());
+					printf("Genero: %s \n", genero[i].c_str());
+					printf("Descripcion: %s \n", desc[i].c_str());
+					printf("Subtotal: %f \n", precio[i]);
+					printf("IVA: %f \n", iva[i]);
+					printf("Total: %f \n", total[i]);
 				}
 			}
 		}
@@ -213,14 +213,14 @@ void editar()
 	int edit;
 	do
 	{
-		printf("Ingrese el numero de articulo a modificar");
+		printf("Ingrese el numero de articulo a modificar \n");
 		scanf_s("%d", &edit);
-	} while (edit != 0);
+	} while (edit == 0);
 	for (int i = 0; i < registros; i++)
 	{
 		if (edit == articulo[i])
 		{
-			printf("Ingrese el a%co de lanzamiento", 164);
+			printf("Ingrese el a%co de lanzamiento \n", 164);
 			scanf_s("%d", &anio[i]);
 			printf("Ingrese el nombre del articulo \n");
 			cin.ignore();
@@ -233,7 +233,7 @@ void editar()
 			getline(cin, genero[i]);
 			printf("Ingrese la descripcion del articulo\n");
 			getline(cin, desc[i]);
-			printf("Ingrese el precio del articulo");
+			printf("Ingrese el precio del articulo \n");
 			scanf_s("%f", &precio[i]);
 			iva[i] = precio[i] * 16;
 			total[i] = precio[i] + iva[i];
