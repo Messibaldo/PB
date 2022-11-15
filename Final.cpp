@@ -90,7 +90,7 @@ void alta()
 			if (articulo[i] == articulo[i - n])
 			{					
 				printf("el articulo ya existe \n");
-				printf("ingrese el numero de articulo \n");
+				printf("ingrese otro numero de articulo \n");
 				scanf_s("%d", &articulo[i]);
 			}
 			else
@@ -131,7 +131,6 @@ void alta()
 			default:
 				printf("Ingrese una opcion correcta \n");
 				break;
-
 			}
 				
 		}
@@ -210,7 +209,7 @@ void lista()
 }
 void editar()
 {
-	int edit;
+	int edit, modif;
 	do
 	{
 		printf("Ingrese el numero de articulo a modificar \n");
@@ -220,23 +219,46 @@ void editar()
 	{
 		if (edit == articulo[i])
 		{
-			printf("Ingrese el a%co de lanzamiento \n", 164);
-			scanf_s("%d", &anio[i]);
-			printf("Ingrese el nombre del articulo \n");
-			cin.ignore();
-			getline(cin, nombre[i]);
-			printf("Ingrese la clasificacion del articulo\n");
-			getline(cin, clasificacion[i]);
-			printf("Ingrese las caracteristicas del articulo\n");
-			getline(cin, caract[i]);
-			printf("Ingrese el genero del articulo\n");
-			getline(cin, genero[i]);
-			printf("Ingrese la descripcion del articulo\n");
-			getline(cin, desc[i]);
-			printf("Ingrese el precio del articulo \n");
-			scanf_s("%f", &precio[i]);
-			iva[i] = precio[i] * 16;
-			total[i] = precio[i] + iva[i];
+			printf("%cQue desea editar?", 168);
+			scanf_s("%d", &modif);
+			switch (modif)
+			{
+			case 1:
+				printf("Ingrese el a%co de lanzamiento \n", 164);
+				scanf_s("%d", &anio[i]);
+				break;
+			case 2:
+				printf("Ingrese el nombre del articulo \n");
+				cin.ignore();
+				getline(cin, nombre[i]);
+				break;
+			case 3:
+				printf("Ingrese la clasificacion del articulo\n");
+				cin.ignore();
+				getline(cin, clasificacion[i]);
+				break;
+			case 4:
+				printf("Ingrese las caracteristicas del articulo\n");
+				cin.ignore();
+				getline(cin, caract[i]);
+				break;
+			case 5:
+				printf("Ingrese el genero del articulo\n");
+				cin.ignore();
+				getline(cin, genero[i]);
+				break;
+			case 6:
+				printf("Ingrese la descripcion del articulo\n");
+				cin.ignore();
+				getline(cin, desc[i]);
+				break;
+			case 7:
+				printf("Ingrese el precio del articulo \n");
+				scanf_s("%f", &precio[i]);
+				iva[i] = precio[i] * 16;
+				total[i] = precio[i] + iva[i];
+				break;
+			}
 		}
 	}
 }
