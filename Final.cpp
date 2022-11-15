@@ -153,7 +153,7 @@ void lista()
 {
 	int op2;
 	string busq;
-	printf("!.-Clasificacion \n 2.-Genero \n");
+	printf("1.-Clasificacion \n2.-Genero \n");
 	scanf_s("%d", &op2);
 	switch (op2)
 	{
@@ -219,7 +219,7 @@ void editar()
 	{
 		if (edit == articulo[i])
 		{
-			printf("%cQue desea editar?", 168);
+			printf("%cQue desea editar? \n1.-A%co de lanzamiento \n2.-Nombre del articulo \n3.-Clasificacion del articulo \n4.-Caracteristicas del articulo \n5.-Genero del articulo \n6.-Descripcion del articulo \n7.-Precio del articulo\n", 168, 164);
 			scanf_s("%d", &modif);
 			switch (modif)
 			{
